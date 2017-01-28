@@ -1,10 +1,7 @@
-===========================================
-Taxonomic profiling using mOTUs with ngless
-===========================================
+# Taxonomic profiling using mOTUs with ngless
 
 
-You can use ngless to compute `mOTU profiles
-<http://www.bork.embl.de/software/mOTU/>`__.
+You can use ngless to compute [mOTU profiles](<http://www.bork.embl.de/software/mOTU/>`__.
 
 This requires the use of the (standard) motus module::
 

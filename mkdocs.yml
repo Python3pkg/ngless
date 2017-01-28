@@ -31,7 +31,7 @@ pages:
     - NGLess Language Definition: Language.rst
 
 
-  markdown_extensions:
+markdown_extensions:
     - toc:
         permalink: 
     - admonition:

@@ -1,0 +1,31 @@
+site_name: NGLess Documentation
+site_description: Documentation for NGLess. An NGS pipeline language with a focus on metagenomics
+site_author: Luis Pedro Coelho
+
+repo_url: https://github.com/luispedro/ngles
+repo_name: ngless
+
+docs_dir: docs/contents
+
+theme: readthedocs
+
+extra_css: []
+extra_javascript: []
+
+pages:
+    - Home: index.md
+    - Introduction: introduction.md
+    - Install: install.md
+    - Tutorial: tutorial.rst
+    - One Liners: one-liners.rst
+    - Preprocessing: preprocess.rst
+    - Functions: Functions.rst
+    - Standard Library: stdlib.md
+    - Methods: methods.md
+    - Modules: modules.md
+    - Organisms: Organisms.rst
+    - mOTUs: motus.rst
+    - Configuration: configuration.rst
+    - F.A.Q.: faq.md
+    - Advanced Usage: advanced.rst
+    - NGLess Language Definition: Language.rst

@@ -1,11 +1,6 @@
-.. _Tutorial:
+# Tutorial
 
-========
-Tutorial
-========
-
-Example
--------
+## Example
 
 This example will use data from a real experiment stored at EMBL-EBI. The data
 can be accessed at http://www.ebi.ac.uk/ena/data/view/SRP023199 and represent
@@ -17,26 +12,22 @@ ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR867/SRR867735/SRR867735.fastq.gz that can
 be accessed in the table, on column **Sample accession**, with value
 SAMN02179475.
 
-
-Load fastQ file
-~~~~~~~~~~~~~~~
+## Load fastQ file
 
 Before creating the whole script lets start by understanding our data set. This
 first step will allow you to perform quality control.
-
-::
 
 	ngless "0.0"
 
 	/* load the data set */
 	input = fastq('SRR867735.fastq.gz')
 
-You can now save the script (as `test.ngl` for example) to the directory
-where the file ``SRR867735.fastq.gz`` is and run ngless::
+You can now save the script (as `test.ngl` for example) to the directory where
+the file `SRR867735.fastq.gz` is and run ngless:
 
 	$ ngless test.ngl
 
-Using a web browser, you can open the file ``test.output_ngless/index.html`` to
+Using a web browser, you can open the file `test.output_ngless/index.html` to
 see information about a data set and the ngless job. At 'Before QC' there will
 be the result of the execution.
 
@@ -55,8 +46,7 @@ first 3 base pairs.
 
 Feel free to explore all the available statistics.
 
-Preprocess
-~~~~~~~~~~
+## Preprocess
 
 For the preprocessing of the data we will:
 
@@ -64,7 +54,7 @@ For the preprocessing of the data we will:
 - Substrim with a minimum quality of **15**.
 - Discard if the length of a read is **smaller than 20**.
 
-Let's add the following code to the already existent code::
+Let's add the following code to the already existent code:
 	
 	preprocess(input) using |read|:
         read = read [3:] // Discard from position 0 until 3 (excluded).
@@ -79,24 +69,20 @@ other languages. The whole block after using is executed for each read in
 This will generate quality control that will be detailed at the execute
 section.
 
-Map
-~~~
+## Map
 
 After adding the preprocess code, it's time to map against the human genome.
 Since the human genome is provided by default, you can simply do:
-
-::
 
 	/* reference genome */
 	human = 'hg19'
 	mapped = map(input, reference=human)
 
-Counting
-~~~~~~~~
+## Counting
 
 We are only interested in the human genes so lets annotate the mapping results
 to the corresponding genes. Since we used a genome provided by NGLess, we do
-not need to specify which annotation file to use (it'll be built in)::
+not need to specify which annotation file to use (it'll be built in):
 
 	/* features to annotate */
 	feats = ['gene']
@@ -116,32 +102,29 @@ you write `{all2}`, you will immediately get a message "did you mean all1?"
 before interpretation starts or if you run the script with -n, which just
 performs this validation).
 
-Write to disk
-~~~~~~~~~~~~~
+## Write to disk
 
-Finally, we write the results to a file::
+Finally, we write the results to a file:
 
 	/* write counts to disk */
 	write(counts, ofile="samples/CountsResult.txt")
 
-
-Execute
--------
+## Execute
 
 You can now save the script (as **test.ngl** for example) to the directory
-where the file 'SRR867735.fastq.gz' is and run ngless.  ::
+where the file 'SRR867735.fastq.gz' is and run ngless. 
 
 	$ ngless test.ngl
 
 As a result of the execution, should be returned the following:
 
-.. code-block:: bash
-
-	Total reads: 31654060
-	Total reads aligned: 28095945[88.76%]
-	Total reads Unique map: 22434229[79.85%]
-	Total reads Non-Unique map: 5661716[20.15%]
-	Total reads without enough qual: 0
+```bash
+Total reads: 31654060
+Total reads aligned: 28095945[88.76%]
+Total reads Unique map: 22434229[79.85%]
+Total reads Non-Unique map: 5661716[20.15%]
+Total reads without enough qual: 0
+```
 
 These are statistics of the map of the file against the human genome.
 

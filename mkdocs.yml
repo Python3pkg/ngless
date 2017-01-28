@@ -16,19 +16,19 @@ pages:
     - Home: index.md
     - Introduction: introduction.md
     - Install: install.md
-    - Tutorial: tutorial.rst
-    - One Liners: one-liners.rst
-    - Preprocessing: preprocess.rst
-    - Functions: Functions.rst
+    - Tutorial: tutorial.md
+    - One Liners: one-liners.md
+    - Preprocessing: preprocess.md
+    - Functions: Functions.md
     - Standard Library: stdlib.md
     - Methods: methods.md
     - Modules: modules.md
-    - Organisms: Organisms.rst
-    - mOTUs: motus.rst
-    - Configuration: configuration.rst
+    - Organisms: Organisms.md
+    - mOTUs: motus.md
+    - Configuration: configuration.md
     - F.A.Q.: faq.md
-    - Advanced Usage: advanced.rst
-    - NGLess Language Definition: Language.rst
+    - Advanced Usage: advanced.md
+    - NGLess Language Definition: Language.md
 
 
 markdown_extensions:

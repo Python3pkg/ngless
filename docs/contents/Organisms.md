@@ -1,15 +1,11 @@
-.. _Organisms:
-
-Available Reference Genomes
-===========================
+# Available Reference Genomes
 
 NGLess provides builtin support for the most widely used model organisms
 (human, mouse, yeast, C. elegans, ...; see the full table below). This makes it
 easier to use the tool when using these organisms as some knowledge is already
 built in.
 
-Genome references available
----------------------------
+## Genome references available
 
 NGLess provides archives containing data sets of organisms. Is also provided
 gene annotations that provide information about protein-coding and non-coding
@@ -37,36 +33,33 @@ The following table represents organisms provided by default:
 | mm10      | mus\_musculus               | GRCm38      |
 +-----------+-----------------------------+-------------+
 
-These archives are all created using version 75 of `Ensembl
-<http://www.ensembl.org/>`__.
+These archives are all created using version 75 of
+[Ensembl](http://www.ensembl.org/).
 
-Automatic installation
-----------------------
+## Automatic installation
 
 The builtin datasets are downloaded the first time they are used. They are
 downloaded to the user home directory and stored in **home**/.ngless/genomes.
 
-Manual installation
---------------------
+## Manual installation
 
 Is possible to install data sets locally, before running any script. They can
 be installed in **User** mode or in **Root** mode.
 
-To install locally (organism bos taurus), use the following command::
+To install locally (organism bos taurus), use the following command:
 
-  $ ngless --install-reference-data bosTau4
+    $ ngless --install-reference-data bosTau4
 
 If you install as a super-user, then the dataset will be available for all
-users::
+users:
 
-  $ sudo ngless --install-reference-data bosTau4
+    $ sudo ngless --install-reference-data bosTau4
 
 When attempting to install an organism if is returned **True** it means that
 the organism is already installed, and there is no reason to install again.
 Otherwise, a progress bar is displayed to provide information on the download.
 
-Data Set Structure
--------------------
+## Data Set Structure
 
 This section provides the technical details necessary if you wish to build your
 own reference for others to use automatically. For most users, it will likely
@@ -75,23 +68,22 @@ be easier to directly specify the references in the ngless script.
 The archives provided by NGLess contain BWA index files, the genome reference
 file and a gene annotation file.
 
-::
 
- Name.tar.gz
-  |
-  |--- Sequence
-  |     |
-  |     |-- BWAIndex
-  |             |-- genome.fa.gz
-  |             |-- genome.fa.gz.amb
-  |             |-- genome.fa.gz.ann
-  |             |-- genome.fa.gz.bwt
-  |             |-- genome.fa.gz.pac
-  |             |-- genome.fa.gz.sa
-  |
-  |--- Annotation
-        |-- annot.gtf.gz
-
+    Name.tar.gz
+     |
+     |--- Sequence
+     |     |
+     |     |-- BWAIndex
+     |             |-- genome.fa.gz
+     |             |-- genome.fa.gz.amb
+     |             |-- genome.fa.gz.ann
+     |             |-- genome.fa.gz.bwt
+     |             |-- genome.fa.gz.pac
+     |             |-- genome.fa.gz.sa
+     |
+     |--- Annotation
+           |-- annot.gtf.gz
+   
 The basename of Description.tar.gz (Description) will have the description name
 of the respective organism (i.e, Mus_musculus.tar.gz).
 

@@ -35,6 +35,7 @@ markdown_extensions:
     - toc:
         permalink: 
     - admonition:
+    - codehilite:
 
 copyright: Copyright &copy; 2014-2017 NGLess Authors
 

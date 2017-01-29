@@ -1,9 +1,10 @@
 # Taxonomic profiling using mOTUs with ngless
 
 
-You can use ngless to compute [mOTU profiles](<http://www.bork.embl.de/software/mOTU/>`__.
+You can use ngless to compute [mOTU
+profiles](http://www.bork.embl.de/software/mOTU/).
 
-This requires the use of the (standard) motus module::
+This requires the use of the (standard) motus module:
 
     ngless "0.0"
     import "motus" version "0.1"
@@ -12,8 +13,8 @@ This module (with the motus database) will be downloaded the first time you use
 it.
 
 
-You can use all the ngless functionality to load and `preprocess
-<preprocess.htm>`__ your data::
+You can use all the ngless functionality to load and
+[preprocess](preprocess.md) your data:
 
     input = paired('input.1.fq.gz', 'input.2.fq.gz')
 
@@ -24,25 +25,25 @@ You can use all the ngless functionality to load and `preprocess
 
 Producing the motus tables is done in three steps.
 
-1. Map the samples against the ``motus`` reference (this reference comes with
-   the motus module we imported earlier)::
+1. Map the samples against the `motus` reference (this reference comes with
+   the motus module we imported earlier):
 
-    mapped = map(as_reads(mapped), reference='motus', mode_all=True)
+       mapped = map(as_reads(mapped), reference='motus', mode_all=True)
 
-2. call the built-in ``count`` function to summarize your reads at gene level::
+2. call the built-in `count` function to summarize your reads at gene level:
 
-    counted = count(mapped, features=['gene'], multiple={dist1})
+       counted = count(mapped, features=['gene'], multiple={dist1})
 
-3. call the ``motus`` function, which takes the gene count table and performs
+3. call the `motus` function, which takes the gene count table and performs
    the motus quantification. The result of this call is another table, which
-   can then be written out with the standard ``write`` call::
+   can then be written out with the standard `write` call:
 
-    table = motus(counted)
-    write(table, ofile='motus-counts.txt')
+       table = motus(counted)
+       write(table, ofile='motus-counts.txt')
 
-This function is the only special function introduced by the ``motus`` module,
+This function is the only special function introduced by the `motus` module,
 everything else is standard ngless.
 
-You can see a full worked out example in the `examples/motus.ngl recipe
-<https://github.com/luispedro/ngless/blob/master/examples/motus.ngl>`__
+You can see a full worked out example in the [examples/motus.ngl
+recipe](https://github.com/luispedro/ngless/blob/master/examples/motus.ngl).
 

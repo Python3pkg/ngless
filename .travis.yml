@@ -32,3 +32,4 @@ script:
   - stack --no-terminal setup
   - make
   - ./run-tests.sh
+  - make install prefix=test-make-install-prefix
